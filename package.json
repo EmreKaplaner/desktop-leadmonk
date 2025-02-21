@@ -1,0 +1,39 @@
+{
+    "name": "leadmonk",
+    "version": "1.0.0",
+    "description": "Electron + Listmonk + PostgreSQL for macOS (Unsigned Build)",
+    "author": "LeadMonk",
+    "main": "main.js",
+    "scripts": {
+      "start": "electron .",
+      "dist:mac": "electron-builder --mac"
+    },
+    "build": {
+      "mac": {
+        "identity": null,
+        "extraResources": [
+          {
+            "from": "pg-dist/macos",
+            "to": "pg-dist"
+          },
+          {
+            "from": "listmonk",
+            "to": "."
+          },
+          {
+            "from": "config.toml",
+            "to": "."
+          }
+        ],
+        "category": "public.app-category.developer"
+      }
+    },
+    "devDependencies": {
+      "electron": "^26.0.0",
+      "electron-builder": "^24.13.3"
+    },
+    "dependencies": {
+      "electron-is-dev": "^3.0.1"
+    }
+  }
+  
